@@ -11,6 +11,7 @@ import UIKit
 protocol ModuleAssemblerProtocol {
     static func createFirstModule() -> UIViewController
     static func createSecondModule(busStop1: BusStop1) -> UIViewController
+    static func createBottomModule(oneBusStop2: OneBusStop2) -> UIViewController
 }
 
 class ModuleAssembler: ModuleAssemblerProtocol {
@@ -27,6 +28,13 @@ class ModuleAssembler: ModuleAssemblerProtocol {
         let view = SecondViewController()
         let networkService = NetworkService()
         let presenter = SecondPresenter(view: view, networkService: networkService, busStop1: busStop1)
+        view.presenter = presenter
+        return view
+    }
+    
+    static func createBottomModule(oneBusStop2: OneBusStop2) -> UIViewController {
+        let view = BottomViewController()
+        let presenter = BottomPresenter(view: view, oneBusStop2: oneBusStop2)
         view.presenter = presenter
         return view
     }

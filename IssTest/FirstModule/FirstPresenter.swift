@@ -9,7 +9,7 @@ import Foundation
 
 protocol FirstPresenterProtocol {
     init(view: FirstViewProtocol, networkService: NetworkServiceProtocol)
-    var busStops1: [BusStop1] { get set }
+    var busStops1: [BusStop1] { get }
     func getAllBusStops()
 }
 

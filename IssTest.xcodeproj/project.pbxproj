@@ -21,6 +21,9 @@
 		C8A5EB0F27C6B55D00243606 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A5EB0E27C6B55D00243606 /* SecondViewController.swift */; };
 		C8A5EB1427C75E5E00243606 /* AlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A5EB1327C75E5E00243606 /* AlertFactory.swift */; };
 		C8A5EB1827C7816A00243606 /* SecondModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A5EB1727C7816A00243606 /* SecondModel.swift */; };
+		C8A5EB1D27C78E4200243606 /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A5EB1C27C78E4200243606 /* BottomViewController.swift */; };
+		C8A5EB2027C7987B00243606 /* BottomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A5EB1F27C7987B00243606 /* BottomPresenter.swift */; };
+		C8A5EB2327C7BD6100243606 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = C8A5EB2227C7BD6100243606 /* FloatingPanel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,8 @@
 		C8A5EB0E27C6B55D00243606 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C8A5EB1327C75E5E00243606 /* AlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFactory.swift; sourceTree = "<group>"; };
 		C8A5EB1727C7816A00243606 /* SecondModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondModel.swift; sourceTree = "<group>"; };
+		C8A5EB1C27C78E4200243606 /* BottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
+		C8A5EB1F27C7987B00243606 /* BottomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8A5EB2327C7BD6100243606 /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +84,7 @@
 				C8A5EB1527C75FE800243606 /* Services */,
 				C8A5EB0327C6800300243606 /* FirstModule */,
 				C8A5EB0D27C6B4BF00243606 /* SecondModule */,
+				C8A5EB1E27C78E4E00243606 /* BottomModule */,
 				C8A5EB1227C75D0D00243606 /* Helpers */,
 				C8A5EAF227C67BCA00243606 /* Main.storyboard */,
 				C8A5EAF727C67BCA00243606 /* LaunchScreen.storyboard */,
@@ -131,6 +138,15 @@
 			path = ModuleAssembler;
 			sourceTree = "<group>";
 		};
+		C8A5EB1E27C78E4E00243606 /* BottomModule */ = {
+			isa = PBXGroup;
+			children = (
+				C8A5EB1F27C7987B00243606 /* BottomPresenter.swift */,
+				C8A5EB1C27C78E4200243606 /* BottomViewController.swift */,
+			);
+			path = BottomModule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,6 +163,9 @@
 			dependencies = (
 			);
 			name = IssTest;
+			packageProductDependencies = (
+				C8A5EB2227C7BD6100243606 /* FloatingPanel */,
+			);
 			productName = IssTest;
 			productReference = C8A5EAE927C67BCA00243606 /* IssTest.app */;
 			productType = "com.apple.product-type.application";
@@ -175,6 +194,9 @@
 				Base,
 			);
 			mainGroup = C8A5EAE027C67BCA00243606;
+			packageReferences = (
+				C8A5EB2127C7BD6100243606 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+			);
 			productRefGroup = C8A5EAEA27C67BCA00243606 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -207,12 +229,14 @@
 				C8A5EAF127C67BCA00243606 /* FirstViewController.swift in Sources */,
 				C8A5EB0827C688C500243606 /* ModuleAssembler.swift in Sources */,
 				C8A5EB1827C7816A00243606 /* SecondModel.swift in Sources */,
+				C8A5EB1D27C78E4200243606 /* BottomViewController.swift in Sources */,
 				C8A5EB0F27C6B55D00243606 /* SecondViewController.swift in Sources */,
 				C8A5EAED27C67BCA00243606 /* AppDelegate.swift in Sources */,
 				C8A5EB0C27C6B4B600243606 /* SecondPresenter.swift in Sources */,
 				C8A5EAEF27C67BCA00243606 /* SceneDelegate.swift in Sources */,
 				C8A5EB0127C67FEC00243606 /* FirstPresenter.swift in Sources */,
 				C8A5EB0A27C68A5500243606 /* NetworkService.swift in Sources */,
+				C8A5EB2027C7987B00243606 /* BottomPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +456,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C8A5EB2127C7BD6100243606 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C8A5EB2227C7BD6100243606 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8A5EB2127C7BD6100243606 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C8A5EAE127C67BCA00243606 /* Project object */;
 }

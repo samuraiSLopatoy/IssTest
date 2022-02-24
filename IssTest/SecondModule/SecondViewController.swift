@@ -8,13 +8,15 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FloatingPanel
 
 protocol SecondViewProtocol: AnyObject {
-    func setOneBusStop(oneBusStop2: OneBusStop2)
+    func setOneBusStopOnMap(oneBusStop2: OneBusStop2)
+    func setBottomView(with oneBusStop2: OneBusStop2)
     func showAlert(with error: Error)
 }
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, FloatingPanelControllerDelegate {
     
     var presenter: SecondPresenterProtocol!
     
@@ -23,7 +25,6 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .secondarySystemBackground
         setupMapView()
         setupXButton()
         
@@ -61,7 +62,6 @@ class SecondViewController: UIViewController {
     @objc private func closeMap() {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 // MARK: - SecondView Protocol
@@ -69,11 +69,15 @@ class SecondViewController: UIViewController {
 extension SecondViewController: SecondViewProtocol {
     
     // 3
-    func setOneBusStop(oneBusStop2: OneBusStop2) {
-        // здесь каким-то UI элементам присваиваим штуки из параметра этой функции
+    func setOneBusStopOnMap(oneBusStop2: OneBusStop2) {
         setupPlacemark(lat: oneBusStop2.lat,
                        lon: oneBusStop2.lon,
                        name: oneBusStop2.name)
+    }
+    
+    func setBottomView(with oneBusStop2: OneBusStop2) {
+        let bottomVC = ModuleAssembler.createBottomModule(oneBusStop2: oneBusStop2)
+        setupBottomViewViaFloatingPanel(with: bottomVC)
     }
     
     func showAlert(with error: Error) {
@@ -111,5 +115,20 @@ extension SecondViewController {
             
             self?.mapView.showAnnotations(annotationsArray, animated: false)
         }
+    }
+}
+
+// MARK: - Setup Floating Panel
+
+extension SecondViewController {
+    
+    private func setupBottomViewViaFloatingPanel(with contentViewController: UIViewController) {
+        let fpc = FloatingPanelController()
+        fpc.delegate = self
+        fpc.addPanel(toParent: self)
+        fpc.surfaceView.layer.cornerRadius = 20
+        fpc.surfaceView.clipsToBounds = true
+    
+        fpc.set(contentViewController: contentViewController)
     }
 }

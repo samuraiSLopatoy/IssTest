@@ -9,7 +9,7 @@ import Foundation
 
 protocol SecondPresenterProtocol {
     init(view: SecondViewProtocol, networkService: NetworkServiceProtocol, busStop1: BusStop1)
-    var busStop1: BusStop1? { get set }
+    var busStop1: BusStop1? { get }
     func getOneBusStop()
 }
 
@@ -33,7 +33,8 @@ class SecondPresenter: SecondPresenterProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let oneBusStop2):
-                    self.view.setOneBusStop(oneBusStop2: oneBusStop2)
+                    self.view.setOneBusStopOnMap(oneBusStop2: oneBusStop2)
+                    self.view.setBottomView(with: oneBusStop2)
                     
                 case .failure(let error):
                     self.view.showAlert(with: error)
