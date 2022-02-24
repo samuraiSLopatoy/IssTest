@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FloatingPanel",
+        "repositoryURL": "https://github.com/scenee/FloatingPanel",
+        "state": {
+          "branch": "master",
+          "revision": "345e89400738c55d57451c04d503c90dd1bd96c4",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
