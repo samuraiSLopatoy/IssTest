@@ -16,6 +16,7 @@ class AlertFactory: AlertFactoryProtocol {
         let alertController = UIAlertController(title: "Network Error 😢",
                                                 message: error.localizedDescription,
                                                 preferredStyle: .alert)
+        
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(action)
         return alertController
